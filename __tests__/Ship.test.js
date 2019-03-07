@@ -5,13 +5,13 @@ describe ('Ship', () => {
   it('can be instantiated', () => {
     expect(new Ship()).toBeInstanceOf(Object);
   });
-  it('has a starting port', () => {
+  it('has a current port', () => {
     const ship = new Ship('Dover');
-    expect(ship.startingPort).toBe('Dover');
+    expect(ship.currentPort).toBe('Dover');
   });
   it('can set sail', () => {
     const ship = new Ship('Dover');
     ship.setSail();
-    expect(ship.startingPoint).toBeFalsy();
+    expect(ship.currentPoint).toBeFalsy();
   });
 });
