@@ -2,10 +2,12 @@ function Ship(currentPort) {
   this.currentPort = currentPort;
 };
 
-// Above property(?) began as startingPort, now changed. 
-
 Ship.prototype.setSail = function () {
   this.currentPort = null;
+};
+
+Ship.prototype.dock = function (dockingPort) {
+  this.currentPort = dockingPort;
 };
 
 module.exports = Ship;
