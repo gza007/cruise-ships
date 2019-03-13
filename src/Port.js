@@ -18,6 +18,4 @@ Port.prototype.removeShip = function removeShip(ship) {
 };
 */
 
-
-
 module.exports = Port;
