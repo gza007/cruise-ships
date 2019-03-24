@@ -1,15 +1,13 @@
 /* globals describe it expect */
 const Ship = require('../src/Ship.js');
-const Itinerary = require('../src/Itinerary.js');
 
-let port;
 let ship;
 let dover;
 let calais;
 let itinerary;
 
 beforeEach(() => {
-  port = {
+  const port = {
     removeShip: jest.fn(),
     addShip: jest.fn(),
   };
@@ -23,7 +21,9 @@ beforeEach(() => {
     name: 'Calais',
     ships: [],
   };
-  itinerary = new Itinerary([dover, calais]);
+  itinerary = {
+    ports: [dover, calais],
+  };
   ship = new Ship(itinerary);
 });
 
@@ -40,7 +40,7 @@ describe('Ship', () => {
     expect(dover.removeShip).toHaveBeenCalledWith(ship);
   });
   it('gets added to port on instantiation', () => {
-    expect(port.addShip).toHaveBeenCalledWith(ship);
+    expect(dover.addShip).toHaveBeenCalledWith(ship);
   });
 });
 
