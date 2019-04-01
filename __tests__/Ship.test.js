@@ -40,11 +40,11 @@ describe('Ship', () => {
     expect(dover.removeShip).toHaveBeenCalledWith(ship);
   });
   // Why doesnt this work?
-  /* it('throws error if setSail method called when we are already at the last port', () => {
+  /*it('throws error if setSail called at the last port', () => {
     ship.currentPort = calais;
-    expect(ship.setSail).toThrowError('You have arrived at your final destination!');
-  }); */
-  it('throws error is setSail called at last port', () => {
+    expect(ship.setSail()).toThrowError('You have arrived at your final destination!');
+  });*/
+  it('throws error is setSail is called at the last port', () => {
     ship.currentPort = calais;
     expect(() => ship.setSail()).toThrowError('You have arrived at your final destination!');
   });
@@ -60,7 +60,9 @@ describe('Dock', () => {
     expect(ship.currentPort).toBe(calais);
     expect(calais.addShip).toHaveBeenCalledWith(ship);
   });
-  it('throws error if dock called prematurely', () => {
+  it('throws error if dock is called whilst docked', () => {
+    ship.setSail();
+    ship.dock();
     expect(() => ship.dock()).toThrowError('You are already docked! Try Setting Sail!');
   });
 });

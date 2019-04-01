@@ -16,7 +16,8 @@ Ship.prototype.setSail = function setSail() {
 
 Ship.prototype.dock = function dock() {
   const previousPortIndex = this.itinerary.ports.indexOf(this.previousPort);
-  if (previousPortIndex === -1) {
+  const currentPortIndex = this.itinerary.ports.indexOf(this.currentPort);
+  if (previousPortIndex + 1 === currentPortIndex) {
     throw new Error('You are already docked! Try Setting Sail!');
   }
   this.currentPort = this.itinerary.ports[previousPortIndex + 1];
