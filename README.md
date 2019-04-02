@@ -1,6 +1,6 @@
 # Project Title
 
-A virtual pet project built with Javascript
+Cruise Ships
 
 ## Getting Started
 
