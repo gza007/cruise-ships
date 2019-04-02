@@ -40,10 +40,10 @@ describe('Ship', () => {
     expect(dover.removeShip).toHaveBeenCalledWith(ship);
   });
   // Why doesnt this work?
-  /*it('throws error if setSail called at the last port', () => {
+  /* it('throws error if setSail called at the last port', () => {
     ship.currentPort = calais;
     expect(ship.setSail()).toThrowError('You have arrived at your final destination!');
-  });*/
+  }); */
   it('throws error is setSail is called at the last port', () => {
     ship.currentPort = calais;
     expect(() => ship.setSail()).toThrowError('You have arrived at your final destination!');
