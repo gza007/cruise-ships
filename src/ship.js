@@ -12,17 +12,14 @@
         throw new Error('You have arrived at your final destination!');
       }
       this.previousPort = this.currentPort;
-      this.currentPort = null;
+      this.currentPort = '';
       this.previousPort.removeShip(this);
     }
 
     dock() {
-      const previousPortIndex = this.itinerary.ports.indexOf(this.previousPort);
-      const currentPortIndex = this.itinerary.ports.indexOf(this.currentPort);
-      if (previousPortIndex + 1 === currentPortIndex) {
-        throw new Error('You are already docked! Try Setting Sail!');
-      }
-      this.currentPort = this.itinerary.ports[previousPortIndex + 1];
+      const itinerary = this.itinerary;
+      const portIndex = itinerary.ports.indexOf(this.previousPort);
+      this.currentPort = itinerary.ports[portIndex + 1];
       this.currentPort.addShip(this);
     }
   }
