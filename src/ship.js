@@ -5,6 +5,7 @@
       this.currentPort = itinerary.ports[0];
       this.previousPort = null;
       this.currentPort.addShip(this);
+      this.nextPort = itinerary.ports[1];
     }
 
     setSail() {
@@ -21,6 +22,7 @@
       const portIndex = itinerary.ports.indexOf(this.previousPort);
       this.currentPort = itinerary.ports[portIndex + 1];
       this.currentPort.addShip(this);
+      this.nextPort = itinerary.ports[portIndex + 2];
     }
   }
   if (typeof module !== 'undefined' && module.exports) {

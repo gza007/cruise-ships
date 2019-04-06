@@ -3,9 +3,7 @@
     constructor(ship) {
       this.ship = ship;
       this.initialiseSea();
-      document.querySelector('#sailbutton').addEventListener('click', () => {
-        this.setSail();
-      });
+      document.querySelector('#sailbutton').addEventListener('click', () => this.setSail());
     }
 
     initialiseSea() {
@@ -63,12 +61,14 @@
         shipElement.style.left = `${shipLeft + 1}px`;
       }, 20);
       ship.dock();
-      ship.dock();
       const dockingMessage = `Now docking at ${ship.currentPort.portName}`;
       this.renderMessage(departingMessage);
       window.setTimeout(() => {
         this.renderMessage(dockingMessage);
       }, 2000);
+      window.setTimeout(() => {
+        this.display();
+      }, 5000);
     }
 
     renderMessage(message) {
@@ -80,6 +80,20 @@
       setTimeout(() => {
         viewport.removeChild(messageElement);
       }, 2000);
+    }
+
+    display() {
+      const ship = this.ship;
+      const portNow = ship.itinerary.ports.indexOf(ship.currentPort);
+      const portNext = portNow + 1;
+      const currentPortDisplay = document.getElementById('currentPort');
+      currentPortDisplay.innerHTML = `Current Port: ${ship.currentPort.portName}`;
+      const upcomingPort = document.getElementById('nextPort');
+      if (portNext === ship.itinerary.ports.length) {
+        upcomingPort.innerHTML = 'You are at the Final Port!';
+      } else {
+        upcomingPort.innerHTML = `Next Port: ${ship.nextPort.portName}`;
+      }
     }
   }
 
