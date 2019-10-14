@@ -10,14 +10,13 @@ header {
 
 #display{
     font-weight: 800;
-    z-index: 1000;
     position: fixed;
     top: 10px;
     right: 20px;
-    font-size: 15px;
     color: white;
     font-family: 'Overpass Mono', monospace;
     font-size: 20px;
+    justify-content: flex-end;
   }
 
 body {

@@ -1,5 +1,5 @@
 /* globals describe it expect */
-const Ship = require('../src/Ship.js');
+const Ship = require('../src/ship.js');
 
 let ship;
 let dover;
